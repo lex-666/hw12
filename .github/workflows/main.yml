@@ -1,0 +1,16 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Manual trigger
+        if: github.event_name == 'workflow_dispatch'  
+        run: echo "Manual trigger executed"
